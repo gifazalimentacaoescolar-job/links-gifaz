@@ -1,0 +1,62 @@
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Instagram, Globe, MessageCircle, CreditCard } from "lucide-react";
+
+export default function LinksInstagram() {
+  const links = [
+    {
+      title: "Acessar Cardápio",
+      url: "https://drive.google.com/file/d/1QCmnUkGuZ2_n8-X2tWB7hYZ3LbF6b2yi/view?usp=sharing",
+      icon: <Globe className="w-5 h-5" />,
+    },
+    {
+      title: "Baixar / Acessar Aplicativo",
+      url: "https://cantinagifaz.menupass.com.br",
+      icon: <CreditCard className="w-5 h-5" />,
+    },
+    {
+      title: "Falar no WhatsApp",
+      url: "https://wa.me/5511999999999",
+      icon: <MessageCircle className="w-5 h-5" />,
+    },
+    {
+      title: "Nosso Instagram",
+      url: "https://instagram.com/seuusuario",
+      icon: <Instagram className="w-5 h-5" />,
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+      <Card className="w-full max-w-md rounded-2xl shadow-lg">
+        <CardContent className="p-6 flex flex-col items-center gap-6">
+          <img
+            src="https://via.placeholder.com/120"
+            alt="Logo"
+            className="w-28 h-28 rounded-full shadow-md"
+          />
+
+          <div className="text-center">
+            <h1 className="text-2xl font-bold">Nome da Empresa</h1>
+            <p className="text-sm text-gray-500">
+              Links rápidos e informações importantes
+            </p>
+          </div>
+
+          <div className="w-full flex flex-col gap-3">
+            {links.map((link, index) => (
+              <Button
+                key={index}
+                className="w-full flex items-center gap-2 text-base"
+                onClick={() => window.open(link.url, "_blank")}
+              >
+                {link.icon}
+                {link.title}
+              </Button>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
